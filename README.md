@@ -39,9 +39,48 @@ From top to bottom,
 
 ## Requirements and Configuration
 
-This control surface was created / tested with TouchOSC version 1.1.1.136, and Ardour 6.9.0.
+### Ardour 6.9.0
 
-See the TouchOSC [manual](https://hexler.net/touchosc/manual/introduction) for control surface usage, config, and alteration. See 'Managing Scripts' in Adrour's [Lua Scripting](https://manual.ardour.org/lua-scripting/) section for information on how to configure the 'Punch-Around' editor action (add it to action #3, so that the OSC message doesn't need changing). See [Controlling Ardour with OSC](https://manual.ardour.org/using-control-surfaces/controlling-ardour-with-osc/) for alteration.
+Open Sound Control surfaces must be enabled through the preferences.
+> __Edit > Preferences > Control Surfaces__
+* Choose and Enable "Open Sound Control (OSC)"
+* Select "Show Protocol Settings"
+  - OSC Setup:
+    + Port Mode: Manual
+    + Reply Manual Port: 8000 (or whatever you like)
+    + Preset: Load Last Session
+  - Default Strip Types:
+    +  [x] Audio Tracks
+    +  [x] Control Masters
+    +  [x] Selected Tracks
+  - Default Feedback (feedback value shoud be 8735 or more)
+    +  [x] Strip Buttons
+    +  [x] Strip Controls
+    +  [x] Use SSID as Path Extension
+    +  [x] Use Heartbeat
+    +  [x] Master Section
+    +  [x] Signal Present
+    +  [x] Extra Select Only Feedback
+ 
+ The Punch-Around Lua script must be configured via the script manager.
+ > __Edit > Lua Scripts > Script Manager__
+ * Action Scripts
+   - Select "Action 3"
+   - Press "Add/Set"
+   - Choose the 'Punch-Around' script. Be sure to place it in Ardour's configured script directory.
+
+You'll find it useful to create a template session with all these settings in place, along with your specific interface, track, and plugin stack already setup.
+
+
+### TouchOSC 1.1.1.136
+
+The control surface is setup to talk to Ardour via OSC connection 1.
+> Connections > OSC
+* Enable Connection 1 over UDP
+  - Host: Set to Ardour's host IP
+  - Send Port: Any
+  - Receive Port: 8000, or match to whatever you set in Ardour's reply port
+  - Zeroconf: Disabled
 
 ## Workflow
 
