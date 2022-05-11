@@ -28,14 +28,14 @@ From top to bottom,
 * __PNCH OUT__, toggle punch out
 * __RESZ__, while playhead is at a marker, encode the _'punch around'_ size into the marker's name. The size is specified by the 4-option radio control just below. Each option represents 1, 2, 4, and 6 bars worth of time both left and right of the playhead. Thus options 1-4 result in punch sizes of 2, 4, 8, and 12 bars worth of time respectively.
 * __[Session Name]__
-* __[Selected Track Name]__, or 'Master' when none selected. The track you wish to record to should be selected prior to beginning, as there is no way to select it from the control surface.
+* __[Selected Track Name]__, or 'Master' when none selected. The track you wish to record to should be selected prior to beginning, as the _converser_ does not support track selection at this time.
 * __ARM__, there are two toggles to arm recording. The smaller button toggles master recording, while the larger toggles the selected track recording.
 * __STOP / FORGET__, stop the in-process recording and remove the related recorded track material.
 * __UNDO__ the last action
 * __SAVE__ the session
 * __REDO__ the last undo
-* _heartbeat_, shows your control surface is connected to the Ardour DAW.
-* _SIG_, shows when a signal is detected.
+* _heartbeat_, shows your control surface is connected to the Ardour DAW. If the heartbeat no longer shows or no longer blinks, something has gone awry. Exit out of _control surface view_, then restart view mode.
+* _SIG_, shows when a signal is detected via playback, or when your track is armed, shows interface input signal.
 
 ## Requirements and Configuration
 
@@ -69,7 +69,7 @@ Open Sound Control surfaces must be enabled through the preferences.
    - Press "Add/Set"
    - Choose the 'Punch-Around' script. Be sure to place it in Ardour's configured script directory.
 
-You'll find it useful to create a template session with all these settings in place, along with your specific interface, track, and plugin stack already setup.
+You'll find it useful to create a template session with all these settings in place, along with your specific interface, track, and plugin stack already setup. Be sure to adjust the nudge clock to something acceptable for jogging forward / backward.
 
 
 ### TouchOSC 1.1.1.136
